@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id = "HelloWorld" class = "com.springExample.FirstSpringExamp.HelloWorld" scope="prototype">
+        <property name = "message" value = "Hello World!"/>
+   </bean>
+   <bean id = "hhelloWorld" class = "com.springExample.FirstSpringExamp.HelloWorld" scope="prototype">
+        <property name = "message1" value = "welcome to new World!"/>
+   </bean>
+   <bean id="mycoach" class="com.springExample.FirstSpringExamp.TrachCoach" init-method="doMyStartupStuff" destroy-method="cleanUpstuffyoyo"></bean>
+   <bean id="mycoache" class="com.springExample.FirstSpringExamp.TrachCoach" init-method="printMesag" ></bean>
+   <bean id="coach" class="com.springExample.FirstSpringExamp.BaseBallCoach" >
+   <constructor-arg ref="myFortune"/>
+   </bean>
+   <bean id="myFortune" class="com.springExample.FirstSpringExamp.HappyFortuneService">
+   
+   </bean>
+      </beans>
