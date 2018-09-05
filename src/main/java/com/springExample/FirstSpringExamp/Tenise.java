@@ -1,26 +1,49 @@
 package com.springExample.FirstSpringExamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 
-@Component("tenise")
+@Component
+@Scope("prototype")
 public class Tenise implements Coach {
 
-	private FortuneService fortuneService;
 	@Autowired
-	public Tenise(FortuneService theFortuneService) {
-		fortuneService=theFortuneService;
-	}
-	public String getDailyWorkout() {
-		// TODO Auto-generated method stub
-		return "daily workout";
+	@Qualifier("randomFortuneService")
+	private FortuneService fortuneService;
+	
+	// define a default constructor
+	public Tenise() {
+		System.out.println(">> TennisCoach: inside default constructor");
 	}
 
+	// define a setter method
+	/*
+	@Autowired
+	public void setFortuneService(FortuneService theFortuneService) {
+		System.out.println(">> TennisCoach: inside setFortuneService() method");
+		this.fortuneService = theFortuneService;
+	}
+	*/
+	
+	/*
+	@Autowired
+	public TennisCoach(FortuneService theFortuneService) {
+		fortuneService = theFortuneService;
+	}
+	*/
+	
+	
+	public String getDailyWorkout() {
+		return "Practice your backhand volley";
+	}
+
+	
 	public String getDailyFortune() {
-		// TODO Auto-generated method stub
-		return "good";
+		return fortuneService.getFortune();
 	}
 
 }
