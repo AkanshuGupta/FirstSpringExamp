@@ -27,6 +27,7 @@ public class AnnotationBeanScope {
 		
 		// close the context
 		context.close();
+		//comment added
 	}
 
 }
